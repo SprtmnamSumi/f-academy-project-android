@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -40,16 +42,17 @@ android.apply {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions.apply {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     composeOptions {
@@ -135,12 +138,13 @@ android.apply {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 dependencies {
     // Kotlin
     implementation(platform(Dependencies.Kotlin.kotlinReflect))
+    implementation(Dependencies.Kotlin.kotlinCollections)
 
     // Support
     implementation(Dependencies.Support.appcompat)
@@ -149,16 +153,14 @@ dependencies {
     implementation(Dependencies.Support.lifecycleRuntime)
     implementation(Dependencies.Support.activityKtx)
     implementation(Dependencies.Support.lifecycleCompiler)
-    coreLibraryDesugaring(Dependencies.Support.desugarLibs)
-
-    implementation(Dependencies.Support.vectordrawable)
     implementation(Dependencies.Support.preference)
+    coreLibraryDesugaring(Dependencies.Support.desugarLibs)
 
     // Compose
     implementation(Dependencies.Compose.animation)
     implementation(Dependencies.Compose.foundation)
     implementation(Dependencies.Compose.foundation_layout)
-    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.material3)
     implementation(Dependencies.Compose.material_icons_extended)
     implementation(Dependencies.Compose.runtime_livedata)
     implementation(Dependencies.Compose.runtime)
@@ -189,12 +191,18 @@ dependencies {
 
     // Other
     implementation(Dependencies.Other.timber)
+    implementation(Dependencies.Other.coil)
 
     // Testing
     testImplementation(Dependencies.Test.core)
     testImplementation(Dependencies.Test.runner)
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.mockk)
+
+    androidTestImplementation(Dependencies.Test.core)
+    androidTestImplementation(Dependencies.Test.runner)
+    androidTestImplementation(Dependencies.Test.junit)
+    androidTestImplementation(Dependencies.Test.mockk)
 
     // Lint
     lintChecks(Dependencies.Lint.composeLint)

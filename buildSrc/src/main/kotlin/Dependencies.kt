@@ -10,13 +10,15 @@ object Dependencies {
     object Kotlin {
         const val gradlePlugin = "gradle-plugin"
         const val kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
+        const val kotlinCollections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:${Versions.kotlinCollections}"
     }
 
     object Compose {
         const val animation = "androidx.compose.animation:animation:${Versions.composeVersion}"
-        const val foundation = "androidx.compose.foundation:foundation:${Versions.composeFoundationVersion}"
-        const val foundation_layout = "androidx.compose.foundation:foundation-layout:${Versions.composeFoundationVersion}"
+        const val foundation = "androidx.compose.foundation:foundation:${Versions.composeVersion}"
+        const val foundation_layout = "androidx.compose.foundation:foundation-layout:${Versions.composeVersion}"
         const val material = "androidx.compose.material:material:${Versions.composeMaterialVersion}"
+        const val material3 = "androidx.compose.material3:material3:${Versions.composeMaterial3Version}"
         const val material_icons_extended = "androidx.compose.material:material-icons-extended:${Versions.composeMaterialVersion}"
         const val runtime_livedata = "androidx.compose.runtime:runtime-livedata:${Versions.composeVersion}"
         const val runtime = "androidx.compose.runtime:runtime:${Versions.composeVersion}"
@@ -32,13 +34,9 @@ object Dependencies {
         const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
         const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
         const val activityKtx = "androidx.activity:activity-ktx:${Versions.activity}"
-
+        const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
         const val desugarLibs = "com.android.tools:desugar_jdk_libs:${Versions.desugarLibs}"
-
-        // Questionable
-        const val vectordrawable = "androidx.vectordrawable:vectordrawable:${Versions.vectorDrawable}"
-        const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
     }
 
     object NavigationComponents {
@@ -69,6 +67,7 @@ object Dependencies {
 
     object Other {
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+        const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     }
 
     object Test {
