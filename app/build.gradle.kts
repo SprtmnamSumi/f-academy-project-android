@@ -142,6 +142,11 @@ kotlin {
 }
 
 dependencies {
+    // Material3
+    implementation("androidx.compose.material3:material3:1.1.1")
+    implementation("androidx.compose.material3:material3-window-size-class:1.1.1")
+
+
     // Kotlin
     implementation(platform(Dependencies.Kotlin.kotlinReflect))
     implementation(Dependencies.Kotlin.kotlinCollections)
